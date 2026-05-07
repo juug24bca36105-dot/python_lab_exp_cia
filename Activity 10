@@ -1,0 +1,43 @@
+Aim: To load clean and explore data using Python
+
+import pandas as pd
+data = {
+    "Name": ["Ram", "Sam", "Tom", None],
+    "Marks": [85, 90, None, 75],
+    "City": ["Delhi", "Mumbai", "Chennai", "Bangalore"]
+}
+df = pd.DataFrame(data)
+print("Original Data")
+print(df)
+Replace missing values with 0
+df["Marks"] = df["Marks"].fillna(0)
+Replace missing names with 'Unknown'
+df["Name"] = df["Name"].fillna("Unknown")
+print("\nCleaned Data")
+print(df)
+print("\nFirst 2 Rows")
+print(df.head(2))
+print("\nData Information")
+print(df.info())
+print("\nStatistical Summary")
+print(df.describe())
+
+Output
+Original Data
+    Name  Marks       City
+0    Ram   85.0      Delhi
+1    Sam   90.0     Mumbai
+2    Tom    NaN    Chennai
+3   None   75.0  Bangalore
+
+Cleaned Data
+      Name  Marks       City
+0      Ram   85.0      Delhi
+1      Sam   90.0     Mumbai
+2      Tom    0.0    Chennai
+3  Unknown   75.0  Bangalore
+
+First 2 Rows
+  Name  Marks    City
+0  Ram   85.0   Delhi
+1  Sam   90.0  Mumbai
